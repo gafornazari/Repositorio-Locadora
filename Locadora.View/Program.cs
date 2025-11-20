@@ -1,17 +1,21 @@
 ﻿using Locadora.Controller;
 using Locadora.Models;
-using Microsoft.Data.SqlClient;
 
-Cliente cliente = new Cliente("Novo cliente com doc", "docdocdoc10@emailemail.com.br");
-Documento documento = new Documento("RG", "123455599", new DateOnly(2020, 1, 1), new DateOnly(2030, 1, 1));
+Cliente cliente = new Cliente("Novo Cliente Agora com Documento", "xp@email.com.br");
+Documento documento = new Documento("RG", "555567434", new DateOnly(2020, 1, 1), new DateOnly(2030, 1, 1));
 
 //Console.WriteLine(cliente);
 
-var clienteContoller = new ClienteController();
+var clienteController = new ClienteController();
+
+//documento.setClienteID(8);
+//var documentoController = new DocumentoController();
+//documentoController.AdicionarDocumento(documento);
+
 
 //try
 //{
-//    clienteContoller.AdicionarCliente(cliente, documento);
+//    clienteController.AdicionarCliente(cliente, documento);
 //}
 //catch (Exception ex)
 //{
@@ -20,11 +24,13 @@ var clienteContoller = new ClienteController();
 
 try
 {
-    var listadeClientes = clienteContoller.ListarTodosClientes();
+
+    var listadeClientes = clienteController.ListarTodosClientes();
 
     foreach (var clientedaLista in listadeClientes)
     {
         Console.WriteLine(clientedaLista);
+
     }
 }
 catch (Exception ex)
@@ -32,15 +38,15 @@ catch (Exception ex)
     Console.WriteLine(ex.Message);
 }
 
-//clienteContoller.AtualizarTelefoneCliente("99999-9999", "novoteste@emailemail.com.br");
-//Console.WriteLine(clienteContoller.BuscaClientePorEmail("novoteste@emailemail.com.br"));
+//clienteController.AtualizarTelefoneCliente("99999-9999", "novo@email.com.br");
+//Console.WriteLine(clienteController.BuscaClientePorEmail("novo@email.com.br"));
 
-try
-{
-    clienteContoller.DeletarCliente("docdoc10@emailemail.com.br");
-    Console.WriteLine("Cliente deletado com sucesso!");
-}
-catch (Exception ex)
-{
-    Console.WriteLine("Erro ao deletar cliente na program " + ex.Message);
-}
+//try
+//{
+//    clienteController.DeletarClientePorEmail("a@a.com");
+//    Console.WriteLine("Cliente deletado com sucesso!");
+//}
+//catch (Exception ex)
+//{
+//    Console.WriteLine(ex.Message);
+//}

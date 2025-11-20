@@ -8,11 +8,10 @@ namespace Locadora.Models
 {
     public class Documento
     {
-        public static readonly string INSERTDOCUMENTO = "INSERT INTO tblDocumentos (ClienteID, TipoDocumento, Numero, DataEmissao, DataValidade) " +
-                                                        "VALUES (@ClienteID, @TipoDocumento, @Numero, @DataEmissao, @DataValidade);";
-        public static readonly string UPDATEDOCUMENTO = 
-            "UPDATE tblDocumentos SET TipoDocumento = @TipoDocumento, Numero = @Numero, " +
-            "DataEmissao = @DataEmissao, DataValidade = @DataValidade WHERE DocumentoID = @DocumentoID;";
+        public static readonly string INSERTDOCUMENTO = "INSERT INTO tblDocumentos " +
+            "(ClienteID, TipoDocumento, Numero, DataEmissao, DataValidade) " +
+            "VALUES (@ClienteID, @TipoDocumento, @Numero, @DataEmissao, @DataValidade)";
+
         public int DocumentoID { get; private set; }
         public int ClienteID { get; private set; }
         public string TipoDocumento { get; private set; }
@@ -28,14 +27,15 @@ namespace Locadora.Models
             DataValidade = dataValidade;
         }
 
-        public void setClienteID(int clienteID)
+        public void setClienteID(int clienteId)
         {
-            ClienteID = clienteID;
+            ClienteID = clienteId;
         }
 
         public override string? ToString()
         {
-            return $"Tipo: {TipoDocumento}\nNumero: {Numero}\nData de Emissão: {DataEmissao}\nData de Validade: {DataValidade}\n";
+            return $"Tipo: {TipoDocumento}\nNumero: {Numero}\n" +
+                $"Data de Emissão: {DataEmissao}\nData de Validade: {DataValidade}\n";
         }
     }
 }
