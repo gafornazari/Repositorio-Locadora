@@ -106,10 +106,10 @@ INSERT INTO tblDocumentos (ClienteID, TipoDocumento, Numero, DataEmissao, DataVa
 (3, 'CPF', '111.222.333-44', '2010-07-01', '2040-07-01');
 
 -- Categorias (1:N)
-INSERT INTO tblCategorias (Nome, Descricao, Diaria) VALUES
-('Compacto', 'Carros pequenos para cidade', 80.00),
-('Sedan', 'Carros médios, conforto', 120.00),
-('SUV', 'Carros grandes, espaço', 180.00);
+INSERT INTO tblCategorias (Nome, Descricao) VALUES
+('Compacto', 'Carros pequenos para cidade'),
+('Sedan', 'Carros médios, conforto'),
+('SUV', 'Carros grandes, espaço');
 
 -- Veículos (1:N com Categorias)
 INSERT INTO tblVeiculos (CategoriaID, Placa, Marca, Modelo, Ano, StatusVeiculo) VALUES
